@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="SiteSuite" >
+    <test name="SiteLoginTest">
+        <groups>
+            <run>
+                <include name="loginTest" />
+                <exclude name="pageTests" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.raiffeisen.ruallai.learning.LoginTest" />
+        </classes>
+    </test>
+
+    <test name="SitePagesTest" parallel="methods" thread-count="3">
+        <groups>
+            <run>
+                <include name="pageTests" />
+                <exclude name="loginTest" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.raiffeisen.ruallai.learning.LoginTest" />
+        </classes>
+    </test>
+</suite>
